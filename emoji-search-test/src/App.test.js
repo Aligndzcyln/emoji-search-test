@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import EmojiResults from "./EmojiResults"
+import userEvent from '@testing-library/user-event';
 
 describe("emoji search test", () => {
   beforeEach(() => {
@@ -19,6 +19,13 @@ describe("emoji search test", () => {
     const items = screen.getAllByText(/Click to copy emoji/i);
     expect(items.length).toEqual(20);
   });
+
+  test('should true filtered', () => {
+    const joy = "joy";
+    const input = screen.getByTestId("email-input");
+    userEvent.type(input, joy);
+  })
+
 })
 
 
