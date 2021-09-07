@@ -21,9 +21,10 @@ describe("emoji search test", () => {
   });
 
   test('should true filtered', () => {
-    const joy = "joy";
-    const input = screen.getByTestId("email-input");
+    const joy = "Joy";
+    const input = screen.getByTestId("search-input");
     userEvent.type(input, joy);
+    expect(screen.getByText(joy)).toBeInTheDocument();
   })
 
 })
